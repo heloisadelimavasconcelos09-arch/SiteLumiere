@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumière Livros — Histórias que encontram você</title>
+<meta name="description" content="Lumière Livros: descubra novos autores e receba histórias todos os meses.">
+<style>
+:root{
+  --cream:#fffdf9; --rose:#c98f9b; --rose-light:#f8e9ec;
+  --sage:#dce8de; --gold:#d9b27d; --brown:#3e3432; --white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--brown);line-height:1.6}
+h1,h2,h3,.brand{font-family:Georgia,"Times New Roman",serif}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:20;background:rgba(255,253,249,.95);backdrop-filter:blur(10px);border-bottom:1px solid #eee4dc}
+.nav{max-width:1120px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:25px;letter-spacing:2px;color:#81565d;font-weight:700}
+.navlinks{display:flex;gap:24px;align-items:center;font-size:14px}
+.navlinks a:hover{color:var(--rose)}
+.btn{display:inline-block;background:var(--rose);color:white;padding:12px 20px;border-radius:999px;font-weight:700;border:none;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(.97)}
+.btn.outline{background:transparent;color:var(--rose);border:1px solid var(--rose)}
+.hero{max-width:1120px;margin:auto;min-height:650px;padding:70px 22px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:45px}
+.hero h1{font-size:clamp(46px,7vw,76px);line-height:1.03;color:#81565d;margin:14px 0}
+.hero p{font-size:19px;max-width:580px;color:#665956;margin-bottom:26px}
+.kicker{color:#a97882;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:13px}
+.hero-art{background:var(--rose-light);border-radius:38% 38% 45% 45%;padding:30px;display:flex;justify-content:center;align-items:center;box-shadow:0 25px 70px rgba(91,65,60,.08)}
+.hero-art img{width:100%;max-width:460px;display:block}
+section{padding:85px 22px}
+.container{max-width:1120px;margin:auto}
+.section-head{text-align:center;max-width:700px;margin:0 auto 42px}
+.section-head h2{font-size:40px;color:#81565d;margin-bottom:10px}
+.section-head p{color:#766a66}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{background:white;border:1px solid #eee5de;border-radius:22px;padding:28px;text-align:center;box-shadow:0 10px 30px rgba(80,50,40,.04)}
+.num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--sage);margin:0 auto 15px;font-weight:800}
+.step h3{margin-bottom:8px;color:#81565d}
+.plans{background:var(--rose-light)}
+.plan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:25px;max-width:900px;margin:auto}
+.plan{background:white;border-radius:28px;padding:35px;border:2px solid transparent;box-shadow:0 15px 40px rgba(80,50,40,.07)}
+.plan.featured{border-color:var(--gold)}
+.plan h3{font-size:28px;color:#81565d}
+.price{font-family:Georgia,serif;font-size:42px;margin:10px 0;color:var(--brown)}
+.price small{font-family:Arial;font-size:15px;color:#7c6f6b}
+.plan ul{list-style:none;margin:20px 0 26px}
+.plan li{margin:9px 0}
+.plan li::before{content:"✓";color:#78937c;font-weight:800;margin-right:8px}
+.badge{display:inline-block;background:#f4e6c9;color:#80613b;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:700;margin-bottom:8px}
+.books{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.book{background:white;border-radius:22px;overflow:hidden;border:1px solid #eee5de;box-shadow:0 10px 30px rgba(80,50,40,.05)}
+.cover{height:250px;display:flex;align-items:flex-end;padding:22px;background:linear-gradient(145deg,#eadbd0,#d8e3d8)}
+.cover.two{background:linear-gradient(145deg,#e9d6dc,#eee5ce)}
+.cover.three{background:linear-gradient(145deg,#d8e2e4,#e9d8cd)}
+.cover-title{font-family:Georgia,serif;font-size:29px;color:#594442;font-weight:700}
+.book-body{padding:22px}
+.book-body h3{color:#81565d;font-size:22px}
+.book-body p{color:#746966;margin:8px 0 14px;font-size:14px}
+.authors{background:#edf4ee}
+.author-box{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;background:white;border-radius:28px;padding:45px;max-width:950px;margin:auto}
+.author-box h2{font-size:36px;color:#81565d;margin-bottom:10px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.about-card{background:white;border-radius:24px;padding:30px;border:1px solid #eee5de}
+.about-card h3{color:#81565d;font-size:25px;margin-bottom:8px}
+.cta{background:#81565d;color:white;text-align:center}
+.cta h2{font-size:40px;margin-bottom:10px}
+.cta p{max-width:650px;margin:0 auto 25px;color:#f7e9e7}
+.cta .btn{background:white;color:#81565d}
+footer{padding:35px 22px;background:#3e3432;color:#eee;text-align:center;font-size:13px}
+.modal{display:none;position:fixed;inset:0;background:rgba(35,25,22,.55);z-index:50;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex}
+.modal-card{background:white;border-radius:25px;max-width:470px;width:100%;padding:30px;position:relative}
+.close{position:absolute;right:18px;top:12px;border:0;background:none;font-size:28px;cursor:pointer;color:#8b7772}
+.modal h2{color:#81565d;margin-bottom:8px}
+form{display:grid;gap:12px;margin-top:18px}
+input,select{padding:13px;border:1px solid #ddd0ca;border-radius:12px;font:inherit}
+@media(max-width:800px){
+  .navlinks{display:none}
+  .hero{grid-template-columns:1fr;padding-top:45px;min-height:auto}
+  .hero-art{order:-1}
+  .steps,.books,.about,.plan-grid{grid-template-columns:1fr}
+  .author-box{grid-template-columns:1fr;padding:30px}
+  section{padding:65px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="#inicio">LUMIÈRE</a>
+    <div class="navlinks">
+      <a href="#como">Como funciona</a>
+      <a href="#planos">Planos</a>
+      <a href="#livros">Livros</a>
+      <a href="#autores">Autores</a>
+      <a href="#sobre">Sobre nós</a>
+    </div>
+    <button class="btn" onclick="openModal('digital')">Assinar</button>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div>
+    <span class="kicker">Clube literário</span>
+    <h1>Histórias que encontram você.</h1>
+    <p>Descubra novos autores, novos mundos e novas histórias todos os meses. Escolha seu plano e deixe a Lumière levar a próxima leitura até você.</p>
+    <a class="btn" href="#planos">Conhecer planos</a>
+    <a class="btn outline" href="#livros" style="margin-left:8px">Explorar livros</a>
+  </div>
+  <div class="hero-art"><img src="logo.png" alt="Logo Lumière Livros"></div>
+</section>
+
+<section id="como">
+  <div class="section-head">
+    <h2>Como funciona?</h2>
+    <p>É simples: você escolhe, nós selecionamos e uma nova história chega até você.</p>
+  </div>
+  <div class="container steps">
+    <div class="step"><div class="num">01</div><h3>Escolha</h3><p>Selecione o plano que combina com seu jeito de ler.</p></div>
+    <div class="step"><div class="num">02</div><h3>Descubra</h3><p>Conheça livros de autores independentes e novas vozes.</p></div>
+    <div class="step"><div class="num">03</div><h3>Receba</h3><p>Todos os meses, dois livros chegam ao seu catálogo ou à sua casa.</p></div>
+    <div class="step"><div class="num">04</div><h3>Leia</h3><p>Abra uma nova história e descubra onde ela pode levar você.</p></div>
+  </div>
+</section>
+
+<section class="plans" id="planos">
+  <div class="section-head">
+    <h2>Nossos planos</h2>
+    <p>Dois jeitos de viver a Lumière. O importante é nunca ficar sem uma boa história.</p>
+  </div>
+  <div class="plan-grid">
+    <article class="plan">
+      <span class="badge">Leitura digital</span>
+      <h3>Plano Digital</h3>
+      <div class="price">R$ 15 <small>/mês</small></div>
+      <ul>
+        <li>2 livros digitais por mês</li>
+        <li>Acesso pelo celular, tablet ou computador</li>
+        <li>Novos autores todos os meses</li>
+        <li>Catálogo exclusivo Lumière</li>
+      </ul>
+      <button class="btn" onclick="openModal('digital')">Assinar por R$ 15</button>
+    </article>
+    <article class="plan featured">
+      <span class="badge">Para quem ama papel</span>
+      <h3>Plano Impresso</h3>
+      <div class="price">R$ 30 <small>/mês</small></div>
+      <ul>
+        <li>2 livros impressos por mês</li>
+        <li>Entrega diretamente na sua casa</li>
+        <li>Novos autores todos os meses</li>
+        <li>Seleção de diferentes gêneros</li>
+      </ul>
+      <button class="btn" onclick="openModal('impresso')">Assinar por R$ 30</button>
+    </article>
+  </div>
+</section>
+
+<section id="livros">
+  <div class="section-head">
+    <h2>Livros em destaque</h2>
+    <p>Algumas histórias que poderiam fazer parte da próxima seleção Lumière.</p>
+  </div>
+  <div class="container books">
+    <article class="book"><div class="cover"><div class="cover-title">A Última<br>Estrela</div></div><div class="book-body"><h3>A Última Estrela</h3><p>Fantasia • Aventura</p><p>Uma jovem descobre que as estrelas estão desaparecendo uma por uma.</p></div></article>
+    <article class="book"><div class="cover two"><div class="cover-title">Entre<br>Páginas</div></div><div class="book-body"><h3>Entre Páginas</h3><p>Romance • Drama</p><p>Duas pessoas encontram um livro que parece contar a história de suas próprias vidas.</p></div></article>
+    <article class="book"><div class="cover three"><div class="cover-title">A Casa<br>no Fim</div></div><div class="book-body"><h3>A Casa no Fim da Rua</h3><p>Suspense • Mistério</p><p>Uma casa abandonada guarda um segredo que deveria permanecer escondido.</p></div></article>
+  </div>
+</section>
+
+<section class="authors" id="autores">
+  <div class="author-box">
+    <div><h2>Você é autor?</h2><p>Seu livro pode encontrar novos leitores. Cadastre sua obra na Lumière e faça parte de um catálogo criado para aproximar escritores independentes de pessoas que amam descobrir histórias.</p></div>
+    <button class="btn" onclick="openModal('autor')">Publicar meu livro</button>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="section-head">
+    <h2>Sobre a Lumière</h2>
+    <p>Todo autor merece uma chance de ser descoberto, e todo leitor merece encontrar uma história que fique com ele.</p>
+  </div>
+  <div class="container about">
+    <div class="about-card"><h3>Para leitores</h3><p>A Lumière transforma cada mês em uma oportunidade de encontrar uma leitura diferente, seja na tela ou nas páginas de um livro impresso.</p></div>
+    <div class="about-card"><h3>Para autores</h3><p>Criamos uma ponte entre escritores e leitores, dando espaço para novas histórias e novas vozes literárias.</p></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Sua próxima história favorita pode estar esperando por você.</h2>
+    <p>Escolha seu plano e comece sua jornada pela Lumière Livros.</p>
+    <button class="btn" onclick="openModal('digital')">Começar agora</button>
+  </div>
+</section>
+</main>
+
+<footer>Lumière Livros © 2026 • Histórias que encontram você.</footer>
+
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <button class="close" onclick="closeModal()">×</button>
+    <h2 id="modalTitle">Começar na Lumière</h2>
+    <p id="modalText">Preencha seus dados para demonstrar interesse.</p>
+    <form onsubmit="submitDemo(event)">
+      <input id="name" required placeholder="Seu nome">
+      <input id="email" type="email" required placeholder="Seu e-mail">
+      <select id="choice">
+        <option value="digital">Plano Digital — R$ 15/mês</option>
+        <option value="impresso">Plano Impresso — R$ 30/mês</option>
+      </select>
+      <button class="btn" type="submit">Enviar cadastro</button>
+    </form>
+    <p id="success" style="display:none;margin-top:15px;color:#65806a;font-weight:700">Cadastro demonstrativo enviado! ✨</p>
+  </div>
+</div>
+
+<script>
+function openModal(type){
+  const modal=document.getElementById('modal');
+  const title=document.getElementById('modalTitle');
+  const text=document.getElementById('modalText');
+  const choice=document.getElementById('choice');
+  document.getElementById('success').style.display='none';
+  if(type==='autor'){
+    title.textContent='Cadastre seu livro';
+    text.textContent='Deixe seus dados para demonstrar interesse em publicar sua obra na Lumière.';
+    choice.innerHTML='<option value="autor">Quero publicar meu livro</option>';
+  }else{
+    title.textContent=type==='impresso'?'Assinar Plano Impresso':'Assinar Plano Digital';
+    text.textContent='Preencha seus dados para iniciar seu cadastro.';
+    choice.innerHTML='<option value="digital">Plano Digital — R$ 15/mês</option><option value="impresso">Plano Impresso — R$ 30/mês</option>';
+    choice.value=type;
+  }
+  modal.classList.add('show');
+}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function submitDemo(e){
+  e.preventDefault();
+  document.getElementById('success').style.display='block';
+}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+</script>
+</body>
+</html>
